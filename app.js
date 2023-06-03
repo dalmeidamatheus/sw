@@ -31,6 +31,7 @@ class litragem {
     }
 
     obterlitragemdisponivel() {
+        return this.litragemdisponivel
     }
 
 }
@@ -115,7 +116,7 @@ class BancoDeDadosLocal {
     relatorioDespesas(despesas) {
         let percentualTotal = 0
 
-        litragem.limite_gastos()
+        Litragem.limite_gastos()
 
         let somalitrostotal = despesas.reduce((incremento, acumulador) => {
             return parseFloat(incremento) + parseFloat(acumulador.litros)
@@ -124,7 +125,7 @@ class BancoDeDadosLocal {
         if (somalitrostotal) {
             document.getElementById('progressogastototal').className = 'bg-danger progress-bar'
 
-            percentualTotal = (somalitrostotal * 100) / (litragem.limite_gastos())
+            percentualTotal = (somalitrostotal * 100) / (Litragem.limite_gastos())
             document.getElementById('progressogastototal').style.width = `${percentualTotal}%`
 
 
@@ -153,14 +154,14 @@ class BancoDeDadosLocal {
     RelatorioDespesasGeral(despesas) {
         let percentualTotal = 0;
         
-        litragem.limite_gastos()
+        Litragem.limite_gastos()
 
 
         let somalitrostotal = despesas.reduce((incremento, acumulador) => {
             return parseFloat(incremento) + parseFloat(acumulador.litros);
         }, 0);
 
-        this.litragemdisponivel = litragem.limite_gastos() - somalitrostotal;
+        this.litragemdisponivel = Litragem.limite_gastos() - somalitrostotal;
 
         document.getElementById('somalitrostotal').innerHTML = `R$ ${somalitrostotal.toFixed(2)}`;
         document.getElementById('litragemdisponiveltela').innerHTML = `${litragemdisponivel} litros`;
