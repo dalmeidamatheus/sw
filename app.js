@@ -130,7 +130,7 @@ class BancoDeDadosLocal {
 
 
             document.getElementById('progressogastototal').innerHTML = `${percentualTotal.toFixed(0)}%`
-            document.getElementById('litragemdisponivel').innerHTML = `R$${litragem.limitegastos()}`
+            document.getElementById('litragemdisponivel').innerHTML = `R$${Litragem.limite_gastos()}`
 
             if (percentualTotal < 30) {
                 document.getElementById('progressogastototal').className = 'bg-success progress-bar'
@@ -147,10 +147,15 @@ class BancoDeDadosLocal {
     }
 
     registroRecente(despesas) {
-        despesas.forEach(function (A) {
-            document.getElementById('despesasrecentes').innerHTML = `R$ ${A.valor}`
-        })
-    }
+        let totalDespesas = 0;
+      
+        despesas.forEach(function (despesa) {
+            totalDespesas += parseFloat(despesa.valor);
+        });
+      
+        document.getElementById('somadespesastotal').innerHTML = `R$ ${totalDespesas}`;
+      }
+
     RelatorioDespesasGeral(despesas) {
         let percentualTotal = 0;
         
@@ -161,10 +166,10 @@ class BancoDeDadosLocal {
             return parseFloat(incremento) + parseFloat(acumulador.litros);
         }, 0);
 
-        this.litragemdisponivel = Litragem.limite_gastos() - somalitrostotal;
+        let litragemdisponivel = Litragem.limite_gastos() - somalitrostotal;
 
-        document.getElementById('somalitrostotal').innerHTML = `R$ ${somalitrostotal.toFixed(2)}`;
-        document.getElementById('litragemdisponiveltela').innerHTML = `${litragemdisponivel} litros`;
+        document.getElementById('somalitrostotal').innerHTML = `${somalitrostotal.toFixed(2)} litros`;
+        // document.getElementById('litragemdisponiveltela').innerHTML = `${litragemdisponivel} litros`;
     }
 }
 let bancoDados = new BancoDeDadosLocal()
@@ -216,7 +221,8 @@ function cadastrarDespesa() {
         document.getElementById('statusInfo').innerHTML = `<strong>Dados salvos:</strong> <br> Mês:${mes.value} <br> Dia: ${dia.value} <br> 
             Descrição: ${descricao.value} <br> Valor: R$ ${valor.value} <br> Litros:${litros.value} <br>`
 
-        document.getElementById('saldoPrint').innerHTML = `R$ ${valor.value}`
+        document.getElementById('somalitrosrecentes').innerHTML = `${litros.value} litros`
+        document.getElementById('somadespesasrecentes').innerHTML = `R$ ${valor.value}`
 
         ano.value = ''
         mes.value = ''
