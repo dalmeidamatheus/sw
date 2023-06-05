@@ -1,219 +1,263 @@
-::selection{
-   background-color: #00b7ff;
-   color:white;
+::selection {
+    background-color: #00b7ff;
+    color: white;
 }
 
-body{
+body {
     background-color: #f7f5ee;
     font-family: 'Questrial', sans-serif;
 
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
-    color:#0a9c9c;
+    color: #0a9c9c;
 }
-a{
-    color:black;
+
+a {
+    color: black;
 }
- 
-.close{
+
+.close {
     color: #ffffff;
 }
 
-.close:hover{
+.close:hover {
     color: #ffffff;
 }
 
-.borda{
+.borda {
     border: 1px solid rgb(0, 47, 255);
 }
-label{
+
+label {
     font-size: 20px;
-    color:#494747;
+    color: #494747;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.bg-s{
+
+.bg-s {
     box-shadow: 5px 5px 12px #d8d8a6;
 }
-.bg-img{
+
+.bg-img {
     background: url('img/capa-mulher.png'),
-    linear-gradient( #ffffff, #ffa704);
+        linear-gradient(#ffffff, #ffa704);
     background-repeat: no-repeat;
     background-position: center;
 }
-input[type="checkbox"]{
-    border-bottom:3px solid #ffffff;
+
+input[type="checkbox"] {
+    border-bottom: 3px solid #ffffff;
 }
 
 
-select, option, input{
-  margin-top: 10px;
-  appearance: none;
-  background-color: #ffffff;  
-}
-.b-border{
-    border-bottom:3px solid #ffffff;
-    
-}
-
-
-select, option{
+select,
+option,
+input {
     margin-top: 10px;
     appearance: none;
-    background-color: #ffffff;  
-    border-bottom:3px solid #ffffff;  
-}
-  
-input:focus[type="text"]{
-    border-radius: 0px; 
-    background-color:#ffffff;
+    background-color: #ffffff;
 }
 
-.normal-button{
+.b-border {
+    border-bottom: 3px solid #ffffff;
+
+}
+
+
+select,
+option {
+    margin-top: 10px;
+    appearance: none;
+    background-color: #ffffff;
+    border-bottom: 3px solid #ffffff;
+}
+
+input:focus[type="text"] {
+    border-radius: 0px;
+    background-color: #ffffff;
+}
+
+.normal-button {
     border-radius: 22px;
     border: 0px;
-    padding:5px;
+    padding: 5px;
     width: 130px;
     font-size: 15px;
-    color:white;
-    background-color:#ffffff;
+    color: white;
+    background-color: #ffffff;
     text-transform: uppercase;
 }
-.normal-button:hover{
+
+.normal-button:hover {
     border-radius: 22px;
     border: 0px;
-    padding:5px;
+    padding: 5px;
     width: 130px;
     font-size: 15px;
-    color:white;
-    background-color:#14d8d8;
+    color: white;
+    background-color: #14d8d8;
     text-transform: uppercase;
 }
-.box{
+
+.box {
     margin-left: 40px;
     margin-top: 30px;
     margin-bottom: 30px;
     margin-right: 40px;
 }
-.titulo{
-    color:#0a9c9c;
+
+.titulo {
+    color: #0a9c9c;
     font-family: 'Montserrat', sans-serif;
 }
-.Rbutton{
+
+.Rbutton {
     border-radius: 22px;
     border: 0px;
-    padding:5px;
+    padding: 5px;
     width: 130px;
     font-size: 15px;
-    color:white;
-    background-color:#18d360;
+    color: white;
+    background-color: #18d360;
     text-transform: uppercase;
     margin-top: 10px;
-    margin-right:20px;
+    margin-right: 20px;
 }
 
-.Rbutton:hover{
+.Rbutton:hover {
     border-radius: 22px;
     border: 0px;
-    padding:5px;
+    padding: 5px;
     width: 130px;
     font-size: 15px;
-    color:white;
-    background-color:rgba(4, 228, 41, 0.651);
+    color: white;
+    background-color: rgba(4, 228, 41, 0.651);
     text-transform: uppercase;
     margin-top: 10px;
 }
 
-.Cbutton{
+.Cbutton {
     border-radius: 22px;
     border: 0px;
-    padding:5px;
+    padding: 5px;
     width: 130px;
     font-size: 15px;
-    color:white;
-    background-color:#d34d18;
+    color: white;
+    background-color: #d34d18;
     text-transform: uppercase;
     margin-top: 10px;
-    margin-right:20px;
+    margin-right: 20px;
 }
-.Cbutton:hover{
+
+.Cbutton:hover {
     border-radius: 22px;
     border: 0px;
-    padding:5px;
+    padding: 5px;
     width: 130px;
     font-size: 15px;
-    color:white;
-    background-color:#dd4a10d0;
+    color: white;
+    background-color: #dd4a10d0;
     text-transform: uppercase;
     margin-top: 10px;
-    margin-right:20px;
+    margin-right: 20px;
 }
+
+.texto_apagar {
+    display: none;
+    position: absolute;
+    top: -15px;
+    left: 28px;
+    width: 100%;
+    text-align:center;
+}
+.texto_adicionar {
+    display: none;
+    position: absolute;
+    top: -15px;
+    left: -48px;
+    width: 100%;
+    text-align:center;
+}
+
+.Cbutton:hover+.texto_apagar {
+    display: block;
+}
+.Rbutton:hover+.texto_adicionar {
+    display: block;
+}
+
 .nav-item {
     border-radius: 10px;
     border-color: #00b7ff;
     border-style: solid;
-    border-width: 0 0 2px 0  ;
+    border-width: 0 0 2px 0;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-right: 8px;
 }
+
 .nav-item:hover {
     border-radius: 10px;
     border-color: #00b7ff;
     transition-duration: 0.7s;
     border-style: solid;
-    border-width: 0 0 2px 0  ;
+    border-width: 0 0 2px 0;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    color:rgb(1, 35, 182);
+    color: rgb(1, 35, 182);
 }
 
-.card{
+.card {
     margin-top: 12px;
-    color:#00b7ff;
+    color: #00b7ff;
     margin-bottom: 30px;
-    border:0px;
+    border: 0px;
     font-family: 'Bebas Neue', cursive;
 }
-.title-red{
-    color:#00b7ff;
+
+.title-red {
+    color: #00b7ff;
 }
-.box-title{
+
+.box-title {
     font-family: 'Montserrat', sans-serif;
 }
-.img-box1{
+
+.img-box1 {
     background-size: 20%;
     background-repeat: no-repeat;
     background-image: url('./img/coins.png');
     background-position: right 10% top 50%;
 }
 
-.img-box2{
+.img-box2 {
     background-size: 25%;
     background-repeat: no-repeat;
     background-image: url('./img/shower\ \(1\).png');
     background-position: right 10% top 50%;
 }
 
-.img-box3{
+.img-box3 {
     background-size: 25%;
     background-repeat: no-repeat;
     background-image: url('./img/faucet.png');
     background-position: right 5% top 50%;
 }
 
- .boxY{
+.boxY {
     margin-top: -20px !important;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     height: 100px;
-    
+
 }
-.box-img-footer-right{
+
+.box-img-footer-right {
     background-image: url('img/capa-mulher.png');
     background-size: 40%;
     background-repeat: no-repeat;
     margin-top: -30px;
     height: 130px;
-} 
-
+}
