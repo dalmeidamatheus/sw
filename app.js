@@ -147,29 +147,26 @@ class BancoDeDadosLocal {
     }
 
     registroRecente(despesas) {
-        let totalDespesas = 0;
-      
+        let totalDespesas = 0
+
         despesas.forEach(function (despesa) {
-            totalDespesas += parseFloat(despesa.valor);
+            totalDespesas += parseFloat(despesa.valor)
         });
-      
-        document.getElementById('somadespesastotal').innerHTML = `R$ ${totalDespesas}`;
-      }
+
+        document.getElementById('somadespesastotal').innerHTML = `R$ ${totalDespesas}`
+    }
 
     RelatorioDespesasGeral(despesas) {
-        let percentualTotal = 0;
-        
+        let somalitrostotal = 0
+
         Litragem.limite_gastos()
+        despesas.forEach(function (despesa) {
+            somalitrostotal += parseFloat(despesa.litros)
+        });
 
+        let litragemdisponivel = Litragem.limite_gastos() - somalitrostotal
 
-        let somalitrostotal = despesas.reduce((incremento, acumulador) => {
-            return parseFloat(incremento) + parseFloat(acumulador.litros);
-        }, 0);
-
-        let litragemdisponivel = Litragem.limite_gastos() - somalitrostotal;
-
-        document.getElementById('somalitrostotal').innerHTML = `${somalitrostotal.toFixed(2)} litros`;
-        // document.getElementById('litragemdisponiveltela').innerHTML = `${litragemdisponivel} litros`;
+        document.getElementById('somalitrostotal').innerHTML = `${somalitrostotal} litros`
     }
 }
 let bancoDados = new BancoDeDadosLocal()
@@ -291,6 +288,7 @@ function CarregaListagemDespesas(despesas = [], filtroSistema = false) {
 
     bancoDados.registroRecente(despesas)
     bancoDados.relatorioDespesas(despesas)
+    bancoDados.RelatorioDespesasGeral(despesas)
 
 }
 
