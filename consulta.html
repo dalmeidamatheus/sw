@@ -163,6 +163,7 @@
       </div>
     </div>
   </div>
+  </div>
 
   <section class="container">
     <input type="radio">REALIZAR FILTRO POR CHECKBOX PARA MOSTRAR APENAS AS COLUNAS DESEJADAS
@@ -219,14 +220,34 @@
         </div>
         <div id="modal-corpo" class="modal-body">
 
-        </div>
-        <div class="modal-footer ">
-          <button id="modal-btn" type="button" data-dismiss="modal"></button>
-
+          <div class="row mt-2 g-3">
+            <div class="col-12">
+              <input id="novadesc" type="text" class="form-control" placeholder="Nova descrição">
+            </div>
+            <div class="col-12">
+              <input id="novovalor" type="number" class="form-control" placeholder="Novo valor">
+            </div>
+            <div class="col-12">
+              <input id="novoslitros" type="number" class="form-control" placeholder="Nova quantidade">
+            </div>
+            <div class="col-12">
+              <select id="novacat" class="form-select" aria-label="Nova categoria">
+                <option selected>Selecione a categoria</option>
+                <option value="1">Pago</option>
+                <option value="2">Pendente</option>
+                <option value="3">Atrasado</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="modal-footer">
+            <button id="modal-btn" type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 
 
 </body>

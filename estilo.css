@@ -113,6 +113,31 @@ input:focus[type="text"] {
     font-family: 'Montserrat', sans-serif;
 }
 
+.ebutton {
+    border-radius: 22px;
+    border: 0px;
+    padding: 5px;
+    width: 130px;
+    font-size: 15px;
+    color: white;
+    background-color: rgba(255, 251, 0, 0.863);
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.ebutton:hover {
+    border-radius: 22px;
+    border: 0px;
+    padding: 5px;
+    width: 130px;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(213, 228, 4);
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
 .Rbutton {
     border-radius: 22px;
     border: 0px;

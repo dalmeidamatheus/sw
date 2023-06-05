@@ -112,6 +112,41 @@ class BancoDeDadosLocal {
     excluirDespesa(id) {
         localStorage.removeItem(id)
     }
+    editardespesa(id) {
+        $('#modalRegistroDespesa').modal('show');
+        document.getElementById('modal-titulo').innerHTML = 'Editar';
+        document.getElementById('modal_titulo_header').className = 'modal-header bg-warning text-light';
+      
+        document.getElementById('modal-btn').onclick = function () {
+          const despesa = JSON.parse(localStorage.getItem(id)) || {};
+      
+          const novadesc = document.querySelector("#novadesc").value;
+          const novovalor = document.querySelector("#novovalor").value;
+          const novoslitros = document.querySelector("#novoslitros").value;
+          const novacat = document.querySelector("#novacat").value;
+      
+          if (novadesc) {
+            despesa.descricao = novadesc;
+          }
+      
+          if (novovalor) {
+            despesa.valor = novovalor;
+          }
+      
+          if (novoslitros) {
+            despesa.litros = novoslitros;
+          }
+      
+          if (novacat) {
+            despesa.categoria = novacat;
+          }
+      
+          localStorage.setItem(id, JSON.stringify(despesa));
+          $('#modalRegistroDespesa').modal('hide');
+          window.location.reload();
+        };
+      }
+      
 
     relatorioDespesas(despesas) {
         let percentualTotal = 0
@@ -130,7 +165,7 @@ class BancoDeDadosLocal {
 
 
             document.getElementById('progressogastototal').innerHTML = `${percentualTotal.toFixed(0)}%`
-            document.getElementById('litragemdisponivel').innerHTML = `R$${Litragem.limite_gastos()}`
+            document.getElementById('litragemdisponivel').innerHTML = `${Litragem.limite_gastos()} litros`
 
             if (percentualTotal < 30) {
                 document.getElementById('progressogastototal').className = 'bg-success progress-bar'
@@ -284,6 +319,20 @@ function CarregaListagemDespesas(despesas = [], filtroSistema = false) {
             window.location.reload()
         }
         tr.insertCell(5).append(botaoExcluir)
+
+        let botaoeditar = document.createElement('button')
+
+        botaoeditar.className = 'btn btn-warning'
+        botaoeditar.innerHTML = '<i class="fas fa-pencil-alt"></i>'
+        botaoeditar.id = `ID_DESPESA_${despesaForEach.id}`
+
+        botaoeditar.onclick = function () {
+
+            let id = this.id.replace('ID_DESPESA_', '')
+
+            bancoDados.editardespesa(id,despesas)
+        }
+        tr.insertCell(6).append(botaoeditar)
     })
 
     bancoDados.registroRecente(despesas)
