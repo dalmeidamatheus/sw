@@ -138,7 +138,7 @@ class BancoDeDadosLocal {
           }
       
           if (novacat) {
-            despesa.categoria = novacat;
+            despesa.tipo = novacat;
           }
       
           localStorage.setItem(id, JSON.stringify(despesa));
